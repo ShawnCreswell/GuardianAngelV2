@@ -2,14 +2,14 @@ import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
     
-const ProductList = (props) => {
+const GuardList = (props) => {
 
     const { removeFromDom } = props;
 
-    const deleteProduct = (productId) => {
-        axios.delete('http://localhost:8000/api/products/' + productId)
+    const deleteGuard = (guardId) => {
+        axios.delete('http://localhost:8000/api/guards/' + guardId)
             .then(res => {
-                removeFromDom(productId)
+                removeFromDom(guardId)
             })
             .catch(err => console.error(err));
     }
@@ -23,19 +23,19 @@ const ProductList = (props) => {
             <div className="container">
                 <div className="card">
                     <div className="card-header text-center">
-                        <h1>All Products</h1>
+                        <h1>All Guards</h1>
                     </div>
                 </div>
             </div>
-            {props.products &&
-            props.products.map( (product, i) =>{
+            {props.guards &&
+            props.guards.map( (guard, i) =>{
                 return (
                     <div className="container">
                         <div className="card">
                             <div className="card-body text-center">
                                 <div key={i}>
-                                    <Link to={`/products/${product._id}`}><p>{product.title}</p></Link>
-                                    {/* <button onClick={(e)=> deleteProduct(product._id)}>Delete</button> */}
+                                    <Link to={`/guards/${guard._id}`}><p>{guard.title}</p></Link>
+                                    {/* <button onClick={(e)=> deleteGuard(guard._id)}>Delete</button> */}
                                 </div>
                             </div>
                         </div>
@@ -47,4 +47,4 @@ const ProductList = (props) => {
     )
 }
     
-export default ProductList;
+export default GuardList;

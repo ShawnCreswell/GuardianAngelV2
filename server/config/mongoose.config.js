@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/pmdb", {
+mongoose.connect("mongodb://localhost/GuardianAngel", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 })

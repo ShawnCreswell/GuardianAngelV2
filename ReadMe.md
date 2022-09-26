@@ -41,3 +41,6 @@ npm i dotenv colors
 
 <!-- In myNewProject -->
 npm install cors
+
+<!-- User Auth -->
+npm i bcryptjs express-async-handler jsonwebtoken

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 // Link, useNavigate
     
-const Products = (props) => {
+const Guards = (props) => {
     const [person, setPerson] = useState({})
     const { id } = useParams();
 
@@ -25,4 +25,4 @@ const Products = (props) => {
     )
 }
     
-export default Products;
+export default Guards;

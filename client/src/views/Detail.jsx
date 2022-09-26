@@ -4,21 +4,21 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 // Link, useNavigate
     
 const Detail = (props) => {
-    const [product, setProduct] = useState({})
+    const [guard, setGuard] = useState({})
     const { id } = useParams();
 
     const navigate = useNavigate();
     
     useEffect(() => {
-        axios.get('http://localhost:8000/api/products/' +id)
-            .then(res => setProduct(res.data))
+        axios.get('http://localhost:8000/api/guards/' +id)
+            .then(res => setGuard(res.data))
             .catch(err => console.error(err));
     });
 
-    const deleteProduct = (productId) => {
-        axios.delete('http://localhost:8000/api/products/' + productId)
+    const deleteGuard = (guardId) => {
+        axios.delete('http://localhost:8000/api/guards/' + guardId)
             .then(res => {
-                navigate('/products')
+                navigate('/guards')
             })
             .catch(err => console.error(err));
     }
@@ -27,15 +27,15 @@ const Detail = (props) => {
         <div className="container">
             <div className="card text-center">
                 <div className="card-header">
-                    <h1>{product.title}</h1>
+                    <h1>{guard.title}</h1>
                 </div>
                 <div className='mt-3'>
-                    <p>Price: ${product.price}</p>
-                    <p>Description: {product.description}</p>
-                    <Link className='btn btn-primary mt-5' to={"/products/" + product._id + "/edit"}>
-                    Edit product
+                    <p>Price: ${guard.price}</p>
+                    <p>Description: {guard.description}</p>
+                    <Link className='btn btn-primary mt-5' to={"/guards/" + guard._id + "/edit"}>
+                    Edit guard
                     </Link>
-                    <button className='btn btn-primary ms-5 mt-5' onClick={(e) => deleteProduct(product._id)}>Delete</button>
+                    <button className='btn btn-primary ms-5 mt-5' onClick={(e) => deleteGuard(guard._id)}>Delete</button>
                 </div>
             </div>
         </div>
