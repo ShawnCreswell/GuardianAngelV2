@@ -40,7 +40,8 @@ const Registration = () => {
           { firstName, lastName, email, password },
           config
         );
-
+        
+        console.log(data)
         setLoading(false);
         localStorage.setItem("guardInfo", JSON.stringify(data));
       } catch (error) {
@@ -165,7 +166,7 @@ const Registration = () => {
                     // custom
                   />
                 </div> */}
-                  <Form.Group controlId="pic">
+                  {/* <Form.Group controlId="pic">
                     <Form.Label>Profile Picture</Form.Label>
                     <Form.file
                       onChange={(e) => postDetails(e.target.value[0])}
@@ -174,7 +175,7 @@ const Registration = () => {
                       label="Upload Profile Picture"
                       custom
                     />
-                  </Form.Group>
+                  </Form.Group> */}
               </div>
               <input
                 className="btn btn-primary mb-3"

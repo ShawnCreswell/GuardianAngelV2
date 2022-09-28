@@ -35,6 +35,8 @@ npx create-react-app client
 cd Client
 npm install axios
 npm install react-router-dom
+npm i react-redux redux redux-thunk
+npm i redux-devtools-extension
 
 <!-- Install dotenv and colors -->
 npm i dotenv colors
@@ -44,3 +46,6 @@ npm install cors
 
 <!-- User Auth -->
 npm i bcryptjs express-async-handler jsonwebtoken
+
+npm run start
+nodemon server.js

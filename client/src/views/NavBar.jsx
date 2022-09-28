@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/guardActions";
 
 const NavBar = () => {
+  // const history = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const guardLogin = useSelector(state => state.guardLogin);
+  const { guardInfo } = guardLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    navigate("/login")
+  }
+
   return (
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid">
         <Link to={"/home"} style={{ textDecorationLine: "none" }}>
-          <a class="navbar-brand" href="#">
+          <p className="navbar-brand">
             Guardian Angel
-          </a>
+          </p>
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -20,24 +33,37 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <p className="nav-link active" >
                 Home
-              </a>
+              </p>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <p className="nav-link">
                 Roster
-              </a>
+              </p>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <p className="nav-link">
                 Schedule
-              </a>
+              </p>
+            </li>
+            <li className="nav-item">
+              {/* <Link to={"/login"}> */}
+                <p
+                  className="nav-link"
+                  // style={{}}
+                  href="#"
+                  onClick={logoutHandler}
+                  >
+
+                Logout
+                  </p>
+                  {/* </Link> */}
             </li>
           </ul>
         </div>
