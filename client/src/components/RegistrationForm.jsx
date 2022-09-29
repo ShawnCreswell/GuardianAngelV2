@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../actions/guardActions";
 
 const Registration = () => {
   //keep track of what is being typed via useState hook
@@ -14,69 +15,33 @@ const Registration = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
   const [picMessage, setPicMessage] = useState(null);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [pic, setPic] = useState("default photo");
+  
+  const dispatch = useDispatch();
+  const guardRegister = useSelector((state) => state.guardRegister)
+  const { loading, error, guardInfo } = guardRegister;
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if(guardInfo){
+      // history.push("/dashboard")
+      navigate("/dashboard")
+      // window.location = "/dashboard";
+    }
+  }, [navigate, guardInfo]);
+
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setMessage("Passwords Do not Match");
-    } else {
-      setMessage(null);
-      try {
-        const config = {
-          headers: {
-            "Content-type": "application/json",
-          },
-        };
-
-        setLoading(true);
-
-        const { data } = await axios.post(
-          "http://localhost:8000/api/guards",
-          { firstName, lastName, email, password },
-          config
-        );
-        
-        console.log(data)
-        setLoading(false);
-        localStorage.setItem("guardInfo", JSON.stringify(data));
-      } catch (error) {
-        setError(error.response.data.message);
-      }
+    if(password !== confirmPassword){
+      setMessage('Passwords do not match')
     }
-  };
-
-  const postDetails = (pics) => {
-    if (!pics) {
-      return setPicMessage("Please Select an Imgae");
+    else {
+      dispatch(register(firstName, lastName ,email, password));
     }
 
-    setPicMessage(null);
-
-    if (pics.type === "image/jpeg" || pics.type === "image/png") {
-      const data = new FormData();
-      data.append("file", pics);
-      data.append("upload_preset", "GuardianAngel");
-      data.append("cloud_name", "zhawnv2");
-      fetch("https://api.cloudinary.com/v1_1/zhawnv2/image/upload", {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setPic(data.url.toString());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      return setPicMessage("Please Select an Image");
-    }
   };
 
   //onChange to update firstName and lastName
