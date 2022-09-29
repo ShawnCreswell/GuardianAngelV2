@@ -19,19 +19,16 @@ const Login = () => {
 
   useEffect(() => {
     if(guardInfo){
+      navigate("/dashboard")
       // history.push("/dashboard")
-      // navigate("/dashboard")
-      window.location = "/dashboard";
+      // window.location = "/dashboard";
     }
   }, [navigate, guardInfo]);
 
   //handler when the form is submitted
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-
     dispatch(login(email, password));
-    navigate("/dashboard")
-
   };
 
   //onChange to update firstName and lastName
