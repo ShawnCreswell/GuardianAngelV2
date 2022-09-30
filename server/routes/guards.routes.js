@@ -1,11 +1,13 @@
+const { Router } = require("express");
 const express = require("express");
 // const { createGuard } = require("../controllers/guards.controller");
 const GuardController = require("../controllers/guards.controller");
 // const router = express.Router();
 
 // router.route("/").post(createGuard)
-
 // module.exports = router;
+
+Router.route("api/guards/profile").post(protect, updateGuardProfile)
 
 module.exports = (app) => {
   app.get("/api/guards", GuardController.getAllGuard);
@@ -13,6 +15,7 @@ module.exports = (app) => {
   app.post("/api/guards/login", GuardController.authGuard);
   app.get("/api/guards/:id", GuardController.getGuard);
   app.put("/api/guards/:id", GuardController.updateGuard);
+  // app.put("/api/guards/:id", GuardController.updateGuard);
   app.delete("/api/guards/:id", GuardController.deleteGuard  );
 };
 

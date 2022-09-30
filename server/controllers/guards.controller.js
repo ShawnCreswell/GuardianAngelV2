@@ -73,6 +73,12 @@ module.exports.authGuard = asyncHandler(async (req, res) => {
     throw new Error("Invalid email or password!")
   }
 
+
+  module.exports.updateGuardProfile = asyncHandler(async (req, res) => {})
+
+
+
+
 });
 
 

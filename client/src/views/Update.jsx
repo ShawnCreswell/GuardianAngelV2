@@ -4,17 +4,21 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Update = (props) => {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [pic, setPic] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/Guards/" + id).then((res) => {
-      setTitle(res.data.title);
-      setPrice(res.data.price);
-      setDescription(res.data.description);
+      setFirstName(res.data.firstName);
+      setLastName(res.data.lastName);
+      setEmail(res.data.email);
+      setPassword(res.data.password);
+      // setPic(res.data.pic);
+
     });
   }, [id]);
 
@@ -22,9 +26,11 @@ const Update = (props) => {
     e.preventDefault();
     axios
       .put("http://localhost:8000/api/guards/" + id, {
-        title,
-        price,
-        description,
+        firstName,
+        lastName,
+        email,
+        password,
+        // pic,
       })
       .then((res) => console.log(res))
       .catch((err) => console.error(err))
@@ -45,10 +51,10 @@ const Update = (props) => {
                   <label>First Name:</label>
                   <input
                     type="text"
-                    name="title"
-                    value={title}
+                    name="firstName"
+                    value={firstName}
                     onChange={(e) => {
-                      setTitle(e.target.value);
+                      setFirstName(e.target.value);
                     }}
                   />
                 </p>
@@ -56,10 +62,10 @@ const Update = (props) => {
                   <label>Last Name:</label>
                   <input
                     type="number"
-                    name="price"
-                    value={price}
+                    name="lastName"
+                    value={lastName}
                     onChange={(e) => {
-                      setPrice(e.target.value);
+                      setLastName(e.target.value);
                     }}
                   />
                 </p>
@@ -67,10 +73,10 @@ const Update = (props) => {
                   <label>Email</label>
                   <input
                     type="text"
-                    name="description"
-                    value={description}
+                    name="email"
+                    value={email}
                     onChange={(e) => {
-                      setDescription(e.target.value);
+                      setEmail(e.target.value);
                     }}
                   />
                 </p>
@@ -78,10 +84,10 @@ const Update = (props) => {
                   <label>Password</label>
                   <input
                     type="text"
-                    name="description"
-                    value={description}
+                    name="password"
+                    value={password}
                     onChange={(e) => {
-                      setDescription(e.target.value);
+                      setPassword(e.target.value);
                     }}
                   />
                 </p>
@@ -89,10 +95,10 @@ const Update = (props) => {
                   <label>Confirm Password</label>
                   <input
                     type="text"
-                    name="description"
-                    value={description}
+                    name="password"
+                    value={password}
                     onChange={(e) => {
-                      setDescription(e.target.value);
+                      setPassword(e.target.value);
                     }}
                   />
                 </p>

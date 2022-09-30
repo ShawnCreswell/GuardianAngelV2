@@ -65,6 +65,7 @@ const NavBar = () => {
                   </p>
                   {/* </Link> */}
             </li>
+                  {/*<h1>Welcome {guardInfo.firstName}</h1>*/}
           </ul>
         </div>
       </div>
