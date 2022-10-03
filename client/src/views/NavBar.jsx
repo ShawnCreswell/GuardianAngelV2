@@ -15,12 +15,12 @@ const NavBar = () => {
     dispatch(logout());
     navigate("/login")
   }
-
+  // background:linear-gradient(to right,rgb(48, 49, 50), rgb(27, 26, 28));
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg border-bottom border-primary border-5 " style={{backgroundColor: "linear-gradient(to right,rgb(48, 49, 50), rgb(27, 26, 28))"}}>
+      <div className="container-fluid d-flex justify-content-between">
         <Link to={"/home"} style={{ textDecorationLine: "none" }}>
-          <p className="navbar-brand">
+          <p className="navbar-brand text-white">
             Guardian Angel
           </p>
         </Link>
@@ -38,24 +38,24 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <p className="nav-link active" >
+              <p className="nav-link active text-white" >
                 Home
               </p>
             </li>
             <li className="nav-item">
-              <p className="nav-link">
+              <p className="nav-link text-white">
                 Roster
               </p>
             </li>
             <li className="nav-item">
-              <p className="nav-link">
+              <p className="nav-link text-white">
                 Schedule
               </p>
             </li>
             <li className="nav-item">
               {/* <Link to={"/login"}> */}
                 <p
-                  className="nav-link"
+                  className="nav-link text-white"
                   // style={{}}
                   href="#"
                   onClick={logoutHandler}

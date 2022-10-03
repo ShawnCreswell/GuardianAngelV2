@@ -16,9 +16,9 @@ const Home = () => {
         <div className='container d-flex justify-content-center align-items-center' style={{height:"800px"}}>
             <div className="row">
                 <div className="col">
-                    <h1>Guardian Angel</h1>
+                    <h1 className='text-white'>Guardian Angel</h1>
                     <Link to={`/register`}>
-                        <p>Get started</p>
+                        <p className='text-white text-center'>Get started</p>
                     </Link>
                 </div>
             </div>

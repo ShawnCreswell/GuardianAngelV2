@@ -6,6 +6,7 @@ import Detail from "./views/Detail";
 import Update from "./views/Update";
 import Home from "./views/Home";
 import Login from "./components/LoginForm";
+import Login2 from "./components/LoginForm2";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./views/NavBar";
 
@@ -32,7 +33,7 @@ function App() {
         {/* <Route exact path="/" component={() => <Home />}/> */}
         <Route element={<Home />} path="/home" />
         <Route element={<Register />} path="/register" />
-        <Route element={<Login />} path="/login" />
+        <Route element={<Login2 />} path="/login" />
         {/* <Route path="/login" component={() => <Login />} /> */}
 
         <Route element={<Dashboard />} path="/dashboard" />

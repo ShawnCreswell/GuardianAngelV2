@@ -7,7 +7,7 @@ const GuardController = require("../controllers/guards.controller");
 // router.route("/").post(createGuard)
 // module.exports = router;
 
-Router.route("api/guards/profile").post(protect, updateGuardProfile)
+// Router.route("api/guards/profile").post(protect, updateGuardProfile)
 
 module.exports = (app) => {
   app.get("/api/guards", GuardController.getAllGuard);

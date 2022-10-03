@@ -74,7 +74,7 @@ module.exports.authGuard = asyncHandler(async (req, res) => {
   }
 
 
-  module.exports.updateGuardProfile = asyncHandler(async (req, res) => {})
+  // module.exports.updateGuardProfile = asyncHandler(async (req, res) => {})
 
 
 
