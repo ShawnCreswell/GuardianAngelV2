@@ -17,7 +17,7 @@ const NavBar = () => {
   }
   // background:linear-gradient(to right,rgb(48, 49, 50), rgb(27, 26, 28));
   return (
-    <nav className="navbar navbar-expand-lg border-bottom border-primary border-5 " style={{backgroundColor: "linear-gradient(to right,rgb(48, 49, 50), rgb(27, 26, 28))"}}>
+    <nav className="navbar navbar-expand-lg border-bottom border-light border-5 " style={{backgroundColor: "linear-gradient(to right,rgb(48, 49, 50), rgb(27, 26, 28))"}}>
       <div className="container-fluid d-flex justify-content-between">
         <Link to={"/home"} style={{ textDecorationLine: "none" }}>
           <p className="navbar-brand text-white">

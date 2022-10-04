@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-
 const Dashboard = () => {
   return (
-    
     <div className="container p-5" style={{ backgroundColor: "white" }}>
       <h1 className="mb-5 mt-3">Dashboard</h1>
       <div className="row">

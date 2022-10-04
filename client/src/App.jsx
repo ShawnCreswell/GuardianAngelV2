@@ -9,36 +9,19 @@ import Login from "./components/LoginForm";
 import Login2 from "./components/LoginForm2";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./views/NavBar";
+import ProfilePage from "./views/ProfilePage";
 
 function App() {
   return (
-    // <div>
-    // <main>
-    //   <Routes>
-
-    //   <Route path="/" component={Home}/>
-    //   <Route path="/dashboard" component={() => <Dashboard />} />
-
-    //   </Routes>
-      
-    // </main>
-    
-    // </div>
-
-
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" exact element={<Navigate to={"/home"} /> } />
-        {/* <Route exact path="/" component={() => <Home />}/> */}
         <Route element={<Home />} path="/home" />
         <Route element={<Register />} path="/register" />
         <Route element={<Login2 />} path="/login" />
-        {/* <Route path="/login" component={() => <Login />} /> */}
-
-        <Route element={<Dashboard />} path="/dashboard" />
-        {/* <Route path="/dashboard" component={() => <Dashboard />} /> */}
-
+        {/* <Route element={<Dashboard />} path="/dashboard" /> */}
+        <Route element={<ProfilePage />} path="/profile" />
         <Route element={<Detail />} path="/guards/:id" />
         <Route element={<Update />} path="/update" />
         {/* <Route element={<Update />} path="/guards/:id/edit" /> */}

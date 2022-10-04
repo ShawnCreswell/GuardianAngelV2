@@ -34,7 +34,7 @@ const Login2 = () => {
   
     useEffect(() => {
       if(guardInfo){
-        navigate("/dashboard")
+        navigate("/profile")
         // history.push("/dashboard")
         // window.location = "/dashboard";
       }
