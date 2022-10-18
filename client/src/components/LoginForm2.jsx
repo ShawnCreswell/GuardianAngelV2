@@ -112,6 +112,9 @@ const Login2 = () => {
                 Sign in with facebook
               </MDBBtn>
                 </form>
+                <Link to={"/register"}>
+                <p>New User? Register</p>
+              </Link>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
